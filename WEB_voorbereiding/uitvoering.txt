@@ -47,6 +47,13 @@ Template = Create
 Model = LoginViewModel
 geen data context
 
+AccessDenied view => empty Razor view
+
+
 PARTIAL VIEW
 _NavbarPartial
-Sharedfolder > add Razor view > empty > 
+Sharedfolder > add Razor view > empty > create as a partial view
+We hebben signinmanager, usermanager en rolemanager nodig hier
+Dit is een navbar dat navigatie toont op basis van de rol van de ingelogde gebruiker
+Kan gemakkelijk overgenomen worden
+moet geimplementeerd worden in _Layout navbar

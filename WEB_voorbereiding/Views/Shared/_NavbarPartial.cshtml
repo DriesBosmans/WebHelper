@@ -1,0 +1,52 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using System.Security.Claims
+@using WEB_voorbereiding.Tools
+
+@inject SignInManager<CustomIdentityUser> SignInManager
+@inject UserManager<CustomIdentityUser> UserManager
+@inject RoleManager<IdentityRole> RoleManager
+@{
+    ClaimsPrincipal claimsPrincipal = ViewContext.HttpContext.User;
+    CustomIdentityUser identityUser = await UserManager.GetUserAsync(claimsPrincipal);
+}
+@if (SignInManager.IsSignedIn(User))
+{
+    if (User.IsInRole(Roles.Student))
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" background-color="primary" asp-area="" asp-controller="" asp-action="">Student</a>
+        </li>
+        
+
+    }
+    else if (User.IsInRole(Roles.Lector))
+    {
+       <li class="nav-item">
+            <a class="nav-link text-dark" background-color="primary" asp-area="" asp-controller="" asp-action="">Lector</a>
+        </li>
+
+    }
+    else if (User.IsInRole(Roles.Admin))
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" background-color="primary" asp-area="" asp-controller="" asp-action="">Admin</a>
+        </li>
+    }
+    else
+    {
+        // niet van toepassing hier
+    }
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" background-color="primary" asp-area="" asp-controller="Account" asp-action="Logout">Afmelden</a>
+    </li>
+}
+else
+{
+     <li class="nav-item">
+        <a class="nav-link text-dark" background-color="primary" asp-area="" asp-controller="Account" asp-action="Login" >Aanmelden</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" background-color="primary" asp-area="" asp-controller="Account" asp-action="Register">Registreren</a>
+    </li>
+}

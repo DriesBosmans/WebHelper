@@ -134,8 +134,6 @@ namespace WEB_voorbereiding.Controllers
             return userExist;
         }
         #endregion register
-
-
         #region login
         [HttpGet]
         public IActionResult Login()
