@@ -3,4 +3,4 @@ Identity.EntityFrameworkCore
 EntityframeworkCore.SqlServer
 EntityFrameworkCore.Tools
 
-Models toevoegen => Gebruiker, Student, Lector, Admin
+Models toevoegen => Gebruiker, Student, Lector, Admin, CustomIdentityUser, Vak, VakLector
