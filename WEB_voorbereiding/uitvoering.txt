@@ -10,7 +10,19 @@ startup.cs	ConfigureServices =>	AppDbContext
 									use connectionstring
 									AddIdentity
 									AddPasswordValidator
-CustomPasswordValidator toevoegen
+CustomPasswordValidator toevoegen (tools folder)
 
 startup.cs => use Authentication
 		   => SeedData.EnsurePopulated
+
+add-migration initial
+update-database
+
+SeedData invullen
+{
+	contextdata,
+	roles,
+	identityrecords
+}
+Roles.cs => lijst van Roles (volledig optioneel)
+
