@@ -59,14 +59,9 @@ namespace WEB_voorbereiding.Data
                 await CreateIdentityRecordsAsync(d, userManager, roleManager);
                 await CreateIdentityRecordsAsync(k, userManager, roleManager);
                 await CreateIdentityRecordsAsync(n, userManager, roleManager);
-                try
-                {
-                    context.SaveChanges();
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception(ex.Message, ex);
-                }
+
+                context.SaveChanges();
+
             }
 
         }
@@ -99,8 +94,6 @@ namespace WEB_voorbereiding.Data
                         await userManager.AddToRoleAsync(user, role.Name);
                     }
                 }
-
-
             }
         }
     }

@@ -24,5 +24,29 @@ SeedData invullen
 	roles,
 	identityrecords
 }
-Roles.cs => lijst van Roles (volledig optioneel)
+Roles.cs => lijst van Roles (optioneel)
 
+add-migration initiatedata
+update-database
+
+REGISTER & LOGIN
+registerviewmodel: Alle properties waar we velden voor willen.
+loginviewmodel: alle properties waar we velden voor willen (email en pass)
+RegisterResult: Het resultaat van de registratie, hier kunnen fouten worden teruggegeven
+en of de registratie al dan niet mislukt is. Optioneel, maar aangewezen
+AccountController: kan grotendeels gekopieerd worden
+We hebben een RegisterActie, een LoginActie, LogoutActie en Accessdenied
+
+RegisterView scaffolden=> rechtsclick op actie register => Add View
+Template = Create
+Model = RegisterViewModel
+Geen data context
+
+LoginView scaffolden =>
+Template = Create
+Model = LoginViewModel
+geen data context
+
+PARTIAL VIEW
+_NavbarPartial
+Sharedfolder > add Razor view > empty > 
