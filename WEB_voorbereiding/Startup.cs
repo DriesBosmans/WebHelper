@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -8,6 +10,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WEB_voorbereiding.Data;
+using WEB_voorbereiding.Models;
+using WEB_voorbereiding.Tools;
 
 namespace WEB_voorbereiding
 {
@@ -24,6 +29,30 @@ namespace WEB_voorbereiding
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            //ApplicationDbContext en Connectionstring toevoegen
+            services.AddDbContext<ApplicationDbContext>(opts =>
+            {
+                opts.UseSqlServer(Configuration["ConnectionStrings:ExamenConnection"]);
+            });
+
+            // Identity en Passwordoptions toevoegen
+            services.AddIdentity<CustomIdentityUser, IdentityRole>(
+                options =>
+                {
+                    options.Password.RequireDigit = true;
+                    options.Password.RequireLowercase = true;
+                    options.Password.RequireNonAlphanumeric = false;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequiredLength = 4;
+
+                    //Emailadres moet uniek zijn
+                    options.User.RequireUniqueEmail = true;
+                })
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+
+                // Custom passwoordvalidatie: password mag geen hoofdletters bevatten
+                .AddPasswordValidator<CustomPasswordValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,7 +72,7 @@ namespace WEB_voorbereiding
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -52,6 +81,7 @@ namespace WEB_voorbereiding
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+            SeedData.EnsurePopulated(app);
         }
     }
 }

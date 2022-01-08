@@ -4,3 +4,13 @@ EntityframeworkCore.SqlServer
 EntityFrameworkCore.Tools
 
 Models toevoegen => Gebruiker, Student, Lector, Admin, CustomIdentityUser, Vak, VakLector
+Datafolder: ApplicationDbContext.cs, SeedData.cs
+appsettings.json => Connectionstring
+startup.cs	ConfigureServices =>	AppDbContext
+									use connectionstring
+									AddIdentity
+									AddPasswordValidator
+CustomPasswordValidator toevoegen
+
+startup.cs => use Authentication
+		   => SeedData.EnsurePopulated
