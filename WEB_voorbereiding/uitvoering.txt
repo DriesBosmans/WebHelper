@@ -1,0 +1,5 @@
+Nuget packages
+Identity.EntityFrameworkCore
+EntityframeworkCore.SqlServer
+EntityFrameworkCore.Tools
+
