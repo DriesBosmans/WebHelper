@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -18,17 +17,11 @@ namespace WEB_voorbereiding.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly GebruikersRepo _repo;
-        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public GebruikersController(ApplicationDbContext context, RoleManager<IdentityRole> roleManager)
+        public GebruikersController(ApplicationDbContext context)
         {
             _context = context;
             _repo = new GebruikersRepo(_context);
-            _roleManager = roleManager;
-        }
-        public SelectList GetAllRoles(string selectedRoleId = "1")
-        {
-            return new SelectList(_roleManager.Roles.ToList(), "Id", "Name", selectedRoleId);
         }
 
         // GET: Gebruikers
@@ -84,22 +77,12 @@ namespace WEB_voorbereiding.Controllers
         // GET: Gebruikers/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            List<IdentityRole> identityRoles = new List<IdentityRole>();
-            var roles = await _roleManager.Roles.ToListAsync();
-           // SelectList s = new SelectList(roles);
-
-            identityRoles.AddRange(_roleManager.Roles);
-            SelectList s = new SelectList(roles, "id", "roleName");
-            var gebruiker = await _context.Gebruikers.FindAsync(id);
-            //List<string> lstfuncties = _repo.GetGebruikers().Select(x => x.Functie).Distinct().ToList() ;
-
-            ViewData["RoleId"] = new SelectList(_roleManager.Roles, "Id", "Name");
             if (id == null)
             {
                 return NotFound();
             }
 
-            
+            var gebruiker = await _context.Gebruikers.FindAsync(id);
             if (gebruiker == null)
             {
                 return NotFound();
