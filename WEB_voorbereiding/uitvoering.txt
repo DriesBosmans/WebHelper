@@ -57,3 +57,33 @@ We hebben signinmanager, usermanager en rolemanager nodig hier
 Dit is een navbar dat navigatie toont op basis van de rol van de ingelogde gebruiker
 Kan gemakkelijk overgenomen worden
 moet geimplementeerd worden in _Layout navbar
+
+TAGHELPERS
+folder TagHelpers > Add TagHelper class > GebruikersInfoTagHelper
+_ViewImports.cshtml > "@addTagHelper *, WEB_voorbereiding" toevoegen - belangrijk
+GebruikersInfoTagHelper.cs => Simpele taghelper die wat html voorziet
+ChangeTextColorTageHelper.cs => custom attribuut, wat in dit geval een klasse toewijst
+
+
+GEBRUIKERSCONTROLLER aanmaken
+
+VIEWCOMPONENT
+GebruikersFilterViewComponent
+We maken twee componenten aan onder de volgende folders: 
+	rootfolder/ViewComponents/GebruikersFilterViewComponent.cs
+	rootfolder/Views/Shared/Components/GebruikersFilter/Default.cshtml
+Naamgeving van folders en bestanden is belangrijk. Het bestand in sharedfolder
+is altijd Default.cshtml
+
+GebruikersFilterComponent.cs
+- erft over van ViewComponent
+- Heeft een IViewComponentResult Invoke() functie, waar we een lijst van functies doorgeven aan de View
+
+Default.cshtml
+Voor elk van deze functies maken we een link
+
+Moet geimplementeerd worden in een pagina (Gebruikers/Index.cshtml) als <vc:gebruikers-filter/>
+
+GEBRUIKERSCONTROLLER
+index => aanpassen zodat de view de gebruikerslist krijgt van de repo
+Edit => [Authorize(Roles = Roles.Admin)]

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WEB_voorbereiding.Models.Gebruiker>
+
+@{
+    //Dit is de titel van het venster
+    ViewData["Title"] = "Gebruikers";
+}
+
+<h1>@ViewBag.Titel</h1>
+<vc:gebruikers-filter/>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Voornaam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Naam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Functie)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Voornaam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Naam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Functie)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.GebruikerId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.GebruikerId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.GebruikerId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

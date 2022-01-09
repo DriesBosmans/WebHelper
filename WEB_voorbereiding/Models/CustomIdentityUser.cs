@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
 namespace WEB_voorbereiding.Models
@@ -9,5 +10,6 @@ namespace WEB_voorbereiding.Models
         [Required]
         public int GebruikerId { get; set; }    
         public Gebruiker Gebruiker { get; set; }
+        //public SelectList Roles { get; set; }
     }
 }

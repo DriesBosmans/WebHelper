@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using WEB_voorbereiding.Models;
+using WEB_voorbereiding.ViewModels;
 
 namespace WEB_voorbereiding.Data
 {
@@ -17,5 +18,6 @@ namespace WEB_voorbereiding.Data
         public DbSet<VakLector> VakLectors { get; set;}
         public DbSet<CustomIdentityUser> CustomIdentityUsers { get; set; }
         public DbSet<Vak> Vakken { get; set; }
+        //public DbSet<FunctiesViewModel> Functies { get; set; }
     }
 }

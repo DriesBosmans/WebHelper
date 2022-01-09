@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using WEB_voorbereiding.ModelValidation;
 
 namespace WEB_voorbereiding.Models
 {
@@ -12,9 +13,10 @@ namespace WEB_voorbereiding.Models
         [Required(ErrorMessage = "Dit veld is verplicht.")]
         public string Naam { get; set; }
         [Required, DisplayName("E-mailadres")]
-        [EmailAddress(ErrorMessage = "Onjuist e-mailadres")]
+        [EmailValidation]
+        //[EmailAddress(ErrorMessage = "Onjuist e-mailadres")]
         public string Email { get; set; }
         public string Functie { get; set; }
-
+        public string RoleId { get; set; }
     }
 }
