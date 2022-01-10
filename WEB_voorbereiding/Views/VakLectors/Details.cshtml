@@ -1,0 +1,30 @@
+﻿@model WEB_voorbereiding.Models.VakLector
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>VakLector</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Vak)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Vak.Cursus)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Lector.Gebruiker.VolledigeNaam)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Lector.Gebruiker.VolledigeNaam)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.VakLectorId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

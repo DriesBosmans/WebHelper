@@ -1,0 +1,36 @@
+﻿@model WEB_voorbereiding.Models.VakLector
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>VakLector</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="VakLectorId" />
+            <div class="form-group">
+                <label asp-for="Vak.Cursus" class="control-label"></label>
+                <select asp-for="VakId" class="form-control" asp-items="ViewBag.VakId"></select>
+                <span asp-validation-for="VakId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lector.Gebruiker.Naam" class="control-label"></label>
+                <select asp-for="LectorId" class="form-control" asp-items="ViewBag.LectorId"></select>
+                <span asp-validation-for="LectorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

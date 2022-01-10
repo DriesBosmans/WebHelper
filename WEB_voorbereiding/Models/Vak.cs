@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace WEB_voorbereiding.Models
@@ -6,6 +7,7 @@ namespace WEB_voorbereiding.Models
     public class Vak
     {
         [Required]
+        [DisplayName("Cursus")]
         public int VakId { get; set; }
         [Required]
         public string Cursus { get; set; }

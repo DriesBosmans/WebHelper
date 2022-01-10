@@ -8,7 +8,9 @@
 <h1>@ViewBag.Titel</h1>
 <vc:gebruikers-filter/>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-controller="Account" asp-action="Register">Registreer nieuw account</a><br />
+    Door het accountsysteem laat ik alleen maar nieuwe accounts aanmaken via registratie, deze controller heeft geen create dus
+
 </p>
 <table class="table">
     <thead>

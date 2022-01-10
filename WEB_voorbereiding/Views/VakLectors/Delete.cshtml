@@ -1,0 +1,31 @@
+﻿@model WEB_voorbereiding.Models.VakLector
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<div>
+    <h4>Vaklector verwijderen</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Vak)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Vak.Cursus)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Lector)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Lector.Gebruiker.VolledigeNaam)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="VakLectorId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

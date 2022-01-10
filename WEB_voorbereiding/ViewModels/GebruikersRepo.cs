@@ -8,6 +8,11 @@ namespace WEB_voorbereiding.ViewModels
     public class GebruikersRepo
     {
         ApplicationDbContext _context;
+
+        public GebruikersRepo()
+        {
+        }
+
         public GebruikersRepo(ApplicationDbContext context)
         {
             _context = context;

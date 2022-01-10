@@ -37,20 +37,27 @@ namespace WEB_voorbereiding.Data
             {
                 // Roles aanmaken
                 await CreateRolesAsync(context, roleManager);
+
+                // gebruikers
                 Gebruiker d = new Gebruiker { Voornaam = "Dries", Naam = "Bosmans", Email = "dries.bosmans@student.pxl.be", Functie = Roles.Student };
                 Gebruiker k = new Gebruiker { Voornaam = "Kristof", Naam = "Palmaers", Email = "kristof.palmaers@pxl.be", Functie = Roles.Lector };
                 Gebruiker n = new Gebruiker { Voornaam = "Natacha", Naam = "Bruggen", Email = "natacha.bruggen@pxl.be", Functie = Roles.Admin };
-                context.AddRange(d, k, n);
+                Gebruiker j = new Gebruiker { Voornaam = "Jan", Naam = "Peters", Email = "jan.peters@pxl.be", Functie = Roles.Lector };
+
+                context.AddRange(d, k, n, j);
 
                 Student dries = new Student { Gebruiker = d };
                 Lector kristof = new Lector { Gebruiker = k };
+                Lector jan = new Lector { Gebruiker = j };
                 Admin natacha = new Admin { Gebruiker = n };
                 Vak csharp = new Vak { Cursus = "Csharp Web", Handboek = "Asp.net", StudiePunten = 6 };
+                Vak projmag = new Vak { Cursus = "Project Management", Handboek = "PM forever", StudiePunten = 3 };
                 VakLector vl = new VakLector { Lector = kristof, Vak = csharp };
                 context.Students.Add(dries);
-                context.Lectors.Add(kristof);
+                context.Lectors.AddRange(kristof, jan);
+                
                 context.Admins.Add(natacha);
-                context.Vakken.Add(csharp);
+                context.Vakken.AddRange(csharp, projmag);
                 context.VakLectors.Add(vl);
 
                 // Belangrijk dat de gebruikers eerst opgeslagen worden voor identity wordt aangemaakt
@@ -59,6 +66,7 @@ namespace WEB_voorbereiding.Data
                 await CreateIdentityRecordsAsync(d, userManager, roleManager);
                 await CreateIdentityRecordsAsync(k, userManager, roleManager);
                 await CreateIdentityRecordsAsync(n, userManager, roleManager);
+                await CreateIdentityRecordsAsync(j, userManager, roleManager);
 
                 context.SaveChanges();
 

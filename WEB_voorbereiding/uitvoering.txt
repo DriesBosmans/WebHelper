@@ -87,3 +87,5 @@ Moet geimplementeerd worden in een pagina (Gebruikers/Index.cshtml) als <vc:gebr
 GEBRUIKERSCONTROLLER
 index => aanpassen zodat de view de gebruikerslist krijgt van de repo
 Edit => [Authorize(Roles = Roles.Admin)]
+
+
