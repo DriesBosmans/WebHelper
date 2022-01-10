@@ -10,6 +10,5 @@ namespace WEB_voorbereiding.ViewModels
         [Required]
         public string Password { get; set; }
 
-        //public int Id { get; set; }
     }
 }

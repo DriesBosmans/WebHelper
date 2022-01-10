@@ -13,13 +13,20 @@ namespace WEB_voorbereiding.Controllers
 {
     public class VakLectorsController : Controller
     {
+        /// <summary>
+        /// Deze klasse heb ik er in gestoken voor de foreign keys
+        /// De enige moeilijkheid is de id's vervangen door namen in de views
+        /// </summary>
         private readonly ApplicationDbContext _context;
 
         public VakLectorsController(ApplicationDbContext context)
         {
             _context = context;
         }
-
+        /// <summary>
+        /// Enkel .ThenInclude toevoegen voor gebruiker
+        /// </summary>
+        /// <returns></returns>
         // GET: VakLectors
         public async Task<IActionResult> Index()
         {
@@ -51,11 +58,14 @@ namespace WEB_voorbereiding.Controllers
 
             return View(vakLector);
         }
-
+        /// <summary>
+        /// // Hier gebruiken we LectorNaamViewModel omdat we niet aan de naam van de gebruiker kunnen
+        /// </summary>
+        /// <returns></returns>
         // GET: VakLectors/Create
         public IActionResult Create()
         {
-            // Hier gebruiken we Lectornaamviewmodel omdat we niet aan de naam van de gebruiker kunnen
+            
             var lectoren = _context.Lectors.Include(l => l.Gebruiker);
             List<LectorNaamViewModel> lectorlist = new List<LectorNaamViewModel>();
             foreach (var lector in lectoren)
@@ -69,9 +79,14 @@ namespace WEB_voorbereiding.Controllers
             return View();
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="vakLector"></param>
+        /// <returns></returns>
         // POST: VakLectors/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("VakLectorId,VakId,LectorId")] VakLector vakLector)
@@ -82,11 +97,25 @@ namespace WEB_voorbereiding.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["LectorId"] = new SelectList(_context.Lectors, "LectorId", "LectorId", vakLector.LectorId);
-            ViewData["VakId"] = new SelectList(_context.Vakken, "VakId", "Cursus", vakLector.VakId);
+
+            // wordt enkel uitgevoerd bij een invalid postrequest
+            var lectoren = _context.Lectors.Include(l => l.Gebruiker);
+            List<LectorNaamViewModel> lectorlist = new List<LectorNaamViewModel>();
+            foreach (var lector in lectoren)
+            {
+                LectorNaamViewModel vm = new LectorNaamViewModel(lector);
+                lectorlist.Add(vm);
+
+            }
+            ViewData["LectorId"] = new SelectList(lectorlist, "LectorId", "VolledigeNaam");
+            ViewData["VakId"] = new SelectList(_context.Vakken, "VakId", "Cursus");
             return View(vakLector);
         }
-
+        /// <summary>
+        /// Hier gebruiken we LectorNaamViewModel voor aan de naam te kunnen
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: VakLectors/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -114,8 +143,7 @@ namespace WEB_voorbereiding.Controllers
         }
 
         // POST: VakLectors/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("VakLectorId,VakId,LectorId")] VakLector vakLector)
@@ -150,6 +178,11 @@ namespace WEB_voorbereiding.Controllers
             return View(vakLector);
         }
 
+        /// <summary>
+        /// .ThenInclude voor aan de gebruiker te kunnen
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: VakLectors/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

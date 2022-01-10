@@ -33,7 +33,12 @@ namespace WEB_voorbereiding.Controllers
             _roleManager = roleManager;
             _repo = new GebruikersRepo(_context);
         }
-
+        /// <summary>
+        /// De parameter "functie" wordt doorgegeven door de gebruikersfilter
+        /// 
+        /// </summary>
+        /// <param name="functie"></param>
+        /// <returns></returns>
         // GET: Gebruikers
         public async Task<IActionResult> Index(string functie)
         {
@@ -61,27 +66,17 @@ namespace WEB_voorbereiding.Controllers
             return View(gebruiker);
         }
 
-        // GET: Gebruikers/Create
-        //public IActionResult Create()
-        //{
-        //    return View();
-        //}
-
-        //// POST: Gebruikers/Create
-        //// To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        //// more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create([Bind("GebruikerId,Voornaam,Naam,Email,Functie")] Gebruiker gebruiker)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _context.Add(gebruiker);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    return View(gebruiker);
-        //}
+        /// <summary>
+        /// De editpage is alleen voor admins
+        /// Hier is veruit het meeste werk aan
+        /// De gebruikers.functie property hangt samen met de role in de usermanager
+        /// en de entiteit in de verschillende tabellen
+        /// een gebruiker zit in minstens 3 models: gebruiker, student/admin/lector, customidentityuser
+        /// een lector kan ook nog eens in vaklector zitten
+        /// Als een functie van een gebruiker aangepast wordt, moet die ook op al die plaatsen aangepast worden
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Authorize(Roles = Roles.Admin)]
         // GET: Gebruikers/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -111,8 +106,7 @@ namespace WEB_voorbereiding.Controllers
         }
 
         // POST: Gebruikers/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<object> Edit(int id, [Bind("GebruikerId,Voornaam,Naam,Email,Functie")] Gebruiker updatedGebruiker)

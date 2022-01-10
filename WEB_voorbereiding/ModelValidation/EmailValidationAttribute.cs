@@ -2,6 +2,9 @@
 
 namespace WEB_voorbereiding.ModelValidation
 {
+    /// <summary>
+    /// De simpelst mogelijke validatie
+    /// </summary>
     public class EmailValidationAttribute : ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)

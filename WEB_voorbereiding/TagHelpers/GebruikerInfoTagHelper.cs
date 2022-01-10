@@ -6,7 +6,9 @@ using WEB_voorbereiding.Data;
 
 namespace WEB_voorbereiding.TagHelpers
 {
-    // You may need to install the Microsoft.AspNetCore.Razor.Runtime package into your project
+    /// <summary>
+    /// Niet vergeten te registreren in _ViewImports.cshtml
+    /// </summary>
     [HtmlTargetElement("gebruiker-info")]
     public class GebruikerInfoTagHelper : TagHelper
     {

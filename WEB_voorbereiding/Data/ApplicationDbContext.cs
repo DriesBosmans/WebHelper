@@ -18,6 +18,6 @@ namespace WEB_voorbereiding.Data
         public DbSet<VakLector> VakLectors { get; set;}
         public DbSet<CustomIdentityUser> CustomIdentityUsers { get; set; }
         public DbSet<Vak> Vakken { get; set; }
-        //public DbSet<FunctiesViewModel> Functies { get; set; }
+
     }
 }

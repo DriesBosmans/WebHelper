@@ -5,6 +5,10 @@ using WEB_voorbereiding.Models;
 
 namespace WEB_voorbereiding.ViewModels
 {
+    /// <summary>
+    /// Wordt gebruikt in de gebruikersfilter en de gebruikerscontroller
+    /// Geeft niets meer dan een lijst van gebruikers, al dan niet gefilterd
+    /// </summary>
     public class GebruikersRepo
     {
         ApplicationDbContext _context;

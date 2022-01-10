@@ -7,6 +7,9 @@ using WEB_voorbereiding.ViewModels;
 
 namespace WEB_voorbereiding.Components.GebruikersFilter
 {
+    /// <summary>
+    /// De filter bovenaan de gebruikerspagina
+    /// </summary>
     public class GebruikersFilterViewComponent : ViewComponent
     {
         private GebruikersRepo _repo;

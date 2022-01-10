@@ -14,7 +14,7 @@ namespace WEB_voorbereiding.Models
         public string Naam { get; set; }
         [Required, DisplayName("E-mailadres")]
         [EmailValidation]
-        //[EmailAddress(ErrorMessage = "Onjuist e-mailadres")]
+
         public string Email { get; set; }
         public string Functie { get; set; }
         [DisplayName("Naam")]

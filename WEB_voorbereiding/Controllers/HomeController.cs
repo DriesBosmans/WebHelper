@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 using WEB_voorbereiding.Models;
 
 namespace WEB_voorbereiding.Controllers
-{
+{/// <summary>
+/// Niets aangepast
+/// </summary>
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

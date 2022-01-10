@@ -11,19 +11,7 @@ namespace WEB_voorbereiding.Tools
         public const string Student = "Student";
         public const string Admin = "Admin";
 
-        public static IEnumerable<string> IERoles => GetRoles();
-
-        private static List<string> GetRoles()
-        {
-            List<string> lst = new List<string>
-                {
-                    Lector,
-                    Student,
-                    Admin
-                };
-
-            return lst;
-        }
+        
     }
 }
 

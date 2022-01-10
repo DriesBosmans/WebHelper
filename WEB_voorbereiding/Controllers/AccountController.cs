@@ -11,6 +11,12 @@ namespace WEB_voorbereiding.Controllers
 {
     public class AccountController : Controller
     {
+        /// <summary>
+        /// Register, Login, Logout, Access denied
+        /// Deze controller kan bijna volledig gekopieerd worden, 
+        /// registreren en inloggen is bij ieder project hetzelfde
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
             return View();
@@ -33,14 +39,21 @@ namespace WEB_voorbereiding.Controllers
 
         #region register
 
-        // Deze actie laadt de registratiepagina
+        /// <summary>
+        /// Deze actie laadt de registratiepagina
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
 
-        // Deze actie is de POSTrequest
+        /// <summary>
+        /// Deze actie is de POSTrequest
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> RegisterAsync(RegisterViewModel user)
         {
@@ -78,7 +91,11 @@ namespace WEB_voorbereiding.Controllers
 
         }
 
-        // De "backend" van het registratieproces, wordt opgeropen in de Postrequest
+        /// <summary>
+        /// De "backend" van het registratieproces, wordt opgeropen in de Postrequest
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         private async Task<RegisterResultViewModel> RegisterUserAsync(RegisterViewModel user)
         {
             var registerResult = new RegisterResultViewModel();
@@ -127,6 +144,11 @@ namespace WEB_voorbereiding.Controllers
             return registerResult;
         }
 
+        /// <summary>
+        /// Gebruiker bestaat al
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         private async Task<bool> UserExistAsync(RegisterViewModel user)
         {
             bool userExist = false; // FindByUsername bestaat ook.

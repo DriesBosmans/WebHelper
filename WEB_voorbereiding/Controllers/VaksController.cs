@@ -12,6 +12,9 @@ namespace WEB_voorbereiding.Controllers
 {
     public class VaksController : Controller
     {
+        /// <summary>
+        /// Ik denk niet dat ik hier iets aangepast heb
+        /// </summary>
         private readonly ApplicationDbContext _context;
 
         public VaksController(ApplicationDbContext context)

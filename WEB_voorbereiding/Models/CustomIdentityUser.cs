@@ -10,6 +10,6 @@ namespace WEB_voorbereiding.Models
         [Required]
         public int GebruikerId { get; set; }    
         public Gebruiker Gebruiker { get; set; }
-        //public SelectList Roles { get; set; }
+   
     }
 }

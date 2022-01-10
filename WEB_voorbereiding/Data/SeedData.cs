@@ -11,6 +11,11 @@ namespace WEB_voorbereiding.Data
 {
     public static class SeedData
     {
+        /// <summary>
+        /// wordt uitgevoerd in startup.cs
+        /// </summary>
+        /// <param name="app"></param>
+        /// <returns></returns>
         public async static Task EnsurePopulated(IApplicationBuilder app)
         {
             ApplicationDbContext context = app
@@ -31,8 +36,8 @@ namespace WEB_voorbereiding.Data
                 .ServiceProvider
                 .GetRequiredService<RoleManager<IdentityRole>>();
 
-            // 3 gebruikers=> Student Dries, Lector Kristof, Admin Natacha
-            // 1 Vak=> C# Web
+            // 4 gebruikers=> Student Dries, Lector Kristof, Admin Natacha, Lector Jan
+            // 2 Vakken=> C# Web, proj magmnt
             if (!context.Gebruikers.Any())
             {
                 // Roles aanmaken
@@ -73,7 +78,12 @@ namespace WEB_voorbereiding.Data
             }
 
         }
-
+        /// <summary>
+        /// Rollen aanmaken
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="roleManager"></param>
+        /// <returns></returns>
         async static Task CreateRolesAsync(ApplicationDbContext context, RoleManager<IdentityRole> roleManager)
         {
             if (!context.Roles.Any())
@@ -86,6 +96,13 @@ namespace WEB_voorbereiding.Data
                 await roleManager.CreateAsync(role);
             }
         }
+        /// <summary>
+        /// Creeert identityrecords
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="userManager"></param>
+        /// <param name="roleManager"></param>
+        /// <returns></returns>
         async static Task CreateIdentityRecordsAsync(Gebruiker g, UserManager<CustomIdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             if (await userManager.FindByEmailAsync(g.Email) == null)

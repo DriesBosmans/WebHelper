@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace WEB_voorbereiding.TagHelpers
 {
+    /// <summary>
+    /// Niet vergeten te registreren in _ViewImports.cshtml
+    /// </summary>
     //target element, het attribuut dat we willen zetten
     [HtmlTargetElement("h4", Attributes = "text-color")]
     public class ChangeTextColorTagHelper : TagHelper
