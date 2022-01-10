@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using WEB_voorbereiding.Tools;
+using WebHelper.Tools;
 
-namespace WEB_voorbereiding.ViewModels
+namespace WebHelper.ViewModels
 {
     public class RegisterViewModel
     {

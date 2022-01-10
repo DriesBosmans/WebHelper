@@ -4,10 +4,10 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using WEB_voorbereiding.Models;
-using WEB_voorbereiding.Tools;
+using WebHelper.Models;
+using WebHelper.Tools;
 
-namespace WEB_voorbereiding.Data
+namespace WebHelper.Data
 {
     public static class SeedData
     {

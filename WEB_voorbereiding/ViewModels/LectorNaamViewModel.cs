@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
-using WEB_voorbereiding.Data;
-using WEB_voorbereiding.Models;
+using WebHelper.Data;
+using WebHelper.Models;
 
-namespace WEB_voorbereiding.ViewModels
+namespace WebHelper.ViewModels
 {
     public class LectorNaamViewModel
     {

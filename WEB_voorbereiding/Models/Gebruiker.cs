@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using WEB_voorbereiding.ModelValidation;
+using WebHelper.ModelValidation;
 
-namespace WEB_voorbereiding.Models
+namespace WebHelper.Models
 {
     public class Gebruiker
     {

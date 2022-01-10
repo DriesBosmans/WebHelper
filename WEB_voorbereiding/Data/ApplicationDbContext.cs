@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using WEB_voorbereiding.Models;
-using WEB_voorbereiding.ViewModels;
+using WebHelper.Models;
+using WebHelper.ViewModels;
 
-namespace WEB_voorbereiding.Data
+namespace WebHelper.Data
 {
     public class ApplicationDbContext : IdentityDbContext<CustomIdentityUser>
     {

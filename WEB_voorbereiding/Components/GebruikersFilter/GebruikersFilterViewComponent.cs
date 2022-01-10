@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using WEB_voorbereiding.Data;
-using WEB_voorbereiding.Models;
-using WEB_voorbereiding.ViewModels;
+using WebHelper.Data;
+using WebHelper.Models;
+using WebHelper.ViewModels;
 
-namespace WEB_voorbereiding.Components.GebruikersFilter
+namespace WebHelper.Components.GebruikersFilter
 {
     /// <summary>
     /// De filter bovenaan de gebruikerspagina

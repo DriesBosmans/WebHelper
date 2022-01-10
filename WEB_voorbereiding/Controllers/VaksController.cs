@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using WEB_voorbereiding.Data;
-using WEB_voorbereiding.Models;
+using WebHelper.Data;
+using WebHelper.Models;
 
-namespace WEB_voorbereiding.Controllers
+namespace WebHelper.Controllers
 {
     public class VaksController : Controller
     {

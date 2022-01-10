@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Linq;
 using System.Text;
-using WEB_voorbereiding.Data;
+using WebHelper.Data;
 
-namespace WEB_voorbereiding.TagHelpers
+namespace WebHelper.TagHelpers
 {
     /// <summary>
     /// Niet vergeten te registreren in _ViewImports.cshtml

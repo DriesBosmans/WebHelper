@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using WEB_voorbereiding.Models;
+using WebHelper.Models;
 
-namespace WEB_voorbereiding.Controllers
+namespace WebHelper.Controllers
 {/// <summary>
 /// Niets aangepast
 /// </summary>

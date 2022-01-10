@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using WEB_voorbereiding.Models;
+using WebHelper.Models;
 
-namespace WEB_voorbereiding.Tools
+namespace WebHelper.Tools
 {
     public class CustomPasswordValidator : PasswordValidator<CustomIdentityUser>
     {

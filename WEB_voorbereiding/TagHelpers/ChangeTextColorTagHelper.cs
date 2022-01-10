@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Razor.Runtime.TagHelpers;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace WEB_voorbereiding.TagHelpers
+namespace WebHelper.TagHelpers
 {
     /// <summary>
     /// Niet vergeten te registreren in _ViewImports.cshtml

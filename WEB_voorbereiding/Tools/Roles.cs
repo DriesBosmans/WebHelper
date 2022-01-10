@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WEB_voorbereiding.Tools
+namespace WebHelper.Tools
 {
     public static class Roles
     {

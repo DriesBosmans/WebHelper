@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace WEB_voorbereiding.Migrations
+namespace WebHelper.Migrations
 {
     public partial class initiatedata : Migration
     {

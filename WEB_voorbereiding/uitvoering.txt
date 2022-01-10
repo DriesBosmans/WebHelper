@@ -64,7 +64,7 @@ moet geimplementeerd worden in _Layout navbar
 
 TAGHELPERS
 folder TagHelpers > Add TagHelper class > GebruikersInfoTagHelper
-_ViewImports.cshtml > "@addTagHelper *, WEB_voorbereiding" toevoegen - belangrijk
+_ViewImports.cshtml > "@addTagHelper *, WebHelper" toevoegen - belangrijk
 GebruikersInfoTagHelper.cs => Simpele taghelper die wat html voorziet
 ChangeTextColorTageHelper.cs => custom attribuut, wat in dit geval een klasse toewijst
 

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
-namespace WEB_voorbereiding.Models
+namespace WebHelper.Models
 {
     public class CustomIdentityUser : IdentityUser
     {

@@ -10,11 +10,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WEB_voorbereiding.Data;
-using WEB_voorbereiding.Models;
-using WEB_voorbereiding.Tools;
+using WebHelper.Data;
+using WebHelper.Models;
+using WebHelper.Tools;
 
-namespace WEB_voorbereiding
+namespace WebHelper
 {
     public class Startup
     {

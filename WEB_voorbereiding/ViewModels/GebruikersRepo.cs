@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using WEB_voorbereiding.Data;
-using WEB_voorbereiding.Models;
+using WebHelper.Data;
+using WebHelper.Models;
 
-namespace WEB_voorbereiding.ViewModels
+namespace WebHelper.ViewModels
 {
     /// <summary>
     /// Wordt gebruikt in de gebruikersfilter en de gebruikerscontroller

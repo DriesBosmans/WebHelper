@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using WEB_voorbereiding.Data;
-using WEB_voorbereiding.Models;
-using WEB_voorbereiding.ViewModels;
+using WebHelper.Data;
+using WebHelper.Models;
+using WebHelper.ViewModels;
 
-namespace WEB_voorbereiding.Controllers
+namespace WebHelper.Controllers
 {
     public class VakLectorsController : Controller
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WEB_voorbereiding.Models
+namespace WebHelper.Models
 {
     public class Student
     {

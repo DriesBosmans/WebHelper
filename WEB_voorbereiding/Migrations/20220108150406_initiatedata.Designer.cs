@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WEB_voorbereiding.Data;
+using WebHelper.Data;
 
-namespace WEB_voorbereiding.Migrations
+namespace WebHelper.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20220108150406_initiatedata")]
@@ -152,7 +152,7 @@ namespace WEB_voorbereiding.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("WEB_voorbereiding.Models.Admin", b =>
+            modelBuilder.Entity("WebHelper.Models.Admin", b =>
                 {
                     b.Property<int>("AdminId")
                         .ValueGeneratedOnAdd()
@@ -169,7 +169,7 @@ namespace WEB_voorbereiding.Migrations
                     b.ToTable("Admins");
                 });
 
-            modelBuilder.Entity("WEB_voorbereiding.Models.CustomIdentityUser", b =>
+            modelBuilder.Entity("WebHelper.Models.CustomIdentityUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -242,7 +242,7 @@ namespace WEB_voorbereiding.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("WEB_voorbereiding.Models.Gebruiker", b =>
+            modelBuilder.Entity("WebHelper.Models.Gebruiker", b =>
                 {
                     b.Property<int>("GebruikerId")
                         .ValueGeneratedOnAdd()
@@ -269,7 +269,7 @@ namespace WEB_voorbereiding.Migrations
                     b.ToTable("Gebruikers");
                 });
 
-            modelBuilder.Entity("WEB_voorbereiding.Models.Lector", b =>
+            modelBuilder.Entity("WebHelper.Models.Lector", b =>
                 {
                     b.Property<int>("LectorId")
                         .ValueGeneratedOnAdd()
@@ -286,7 +286,7 @@ namespace WEB_voorbereiding.Migrations
                     b.ToTable("Lectors");
                 });
 
-            modelBuilder.Entity("WEB_voorbereiding.Models.Student", b =>
+            modelBuilder.Entity("WebHelper.Models.Student", b =>
                 {
                     b.Property<int>("StudentId")
                         .ValueGeneratedOnAdd()
@@ -303,7 +303,7 @@ namespace WEB_voorbereiding.Migrations
                     b.ToTable("Students");
                 });
 
-            modelBuilder.Entity("WEB_voorbereiding.Models.Vak", b =>
+            modelBuilder.Entity("WebHelper.Models.Vak", b =>
                 {
                     b.Property<int>("VakId")
                         .ValueGeneratedOnAdd()
@@ -326,7 +326,7 @@ namespace WEB_voorbereiding.Migrations
                     b.ToTable("Vakken");
                 });
 
-            modelBuilder.Entity("WEB_voorbereiding.Models.VakLector", b =>
+            modelBuilder.Entity("WebHelper.Models.VakLector", b =>
                 {
                     b.Property<int>("VakLectorId")
                         .ValueGeneratedOnAdd()
@@ -359,7 +359,7 @@ namespace WEB_voorbereiding.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("WEB_voorbereiding.Models.CustomIdentityUser", null)
+                    b.HasOne("WebHelper.Models.CustomIdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -368,7 +368,7 @@ namespace WEB_voorbereiding.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("WEB_voorbereiding.Models.CustomIdentityUser", null)
+                    b.HasOne("WebHelper.Models.CustomIdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -383,7 +383,7 @@ namespace WEB_voorbereiding.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WEB_voorbereiding.Models.CustomIdentityUser", null)
+                    b.HasOne("WebHelper.Models.CustomIdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -392,58 +392,58 @@ namespace WEB_voorbereiding.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("WEB_voorbereiding.Models.CustomIdentityUser", null)
+                    b.HasOne("WebHelper.Models.CustomIdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WEB_voorbereiding.Models.Admin", b =>
+            modelBuilder.Entity("WebHelper.Models.Admin", b =>
                 {
-                    b.HasOne("WEB_voorbereiding.Models.Gebruiker", "Gebruiker")
+                    b.HasOne("WebHelper.Models.Gebruiker", "Gebruiker")
                         .WithMany()
                         .HasForeignKey("GebruikerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WEB_voorbereiding.Models.CustomIdentityUser", b =>
+            modelBuilder.Entity("WebHelper.Models.CustomIdentityUser", b =>
                 {
-                    b.HasOne("WEB_voorbereiding.Models.Gebruiker", "Gebruiker")
+                    b.HasOne("WebHelper.Models.Gebruiker", "Gebruiker")
                         .WithMany()
                         .HasForeignKey("GebruikerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WEB_voorbereiding.Models.Lector", b =>
+            modelBuilder.Entity("WebHelper.Models.Lector", b =>
                 {
-                    b.HasOne("WEB_voorbereiding.Models.Gebruiker", "Gebruiker")
+                    b.HasOne("WebHelper.Models.Gebruiker", "Gebruiker")
                         .WithMany()
                         .HasForeignKey("GebruikerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WEB_voorbereiding.Models.Student", b =>
+            modelBuilder.Entity("WebHelper.Models.Student", b =>
                 {
-                    b.HasOne("WEB_voorbereiding.Models.Gebruiker", "Gebruiker")
+                    b.HasOne("WebHelper.Models.Gebruiker", "Gebruiker")
                         .WithMany()
                         .HasForeignKey("GebruikerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WEB_voorbereiding.Models.VakLector", b =>
+            modelBuilder.Entity("WebHelper.Models.VakLector", b =>
                 {
-                    b.HasOne("WEB_voorbereiding.Models.Lector", "Lector")
+                    b.HasOne("WebHelper.Models.Lector", "Lector")
                         .WithMany("VakLectoren")
                         .HasForeignKey("LectorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WEB_voorbereiding.Models.Vak", "Vak")
+                    b.HasOne("WebHelper.Models.Vak", "Vak")
                         .WithMany("VakLectoren")
                         .HasForeignKey("VakId")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WEB_voorbereiding.ModelValidation
+namespace WebHelper.ModelValidation
 {
     /// <summary>
     /// De simpelst mogelijke validatie

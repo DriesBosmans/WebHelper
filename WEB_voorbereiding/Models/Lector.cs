@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace WEB_voorbereiding.Models
+namespace WebHelper.Models
 {
     public class Lector
     {
