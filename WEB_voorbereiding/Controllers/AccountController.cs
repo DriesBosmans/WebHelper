@@ -89,13 +89,15 @@ namespace WEB_voorbereiding.Controllers
                 Email = user.Email,
                 Functie = Roles.Student
             };
-            var identityUser = new CustomIdentityUser
+            CustomIdentityUser identityUser = new CustomIdentityUser
             {
                 UserName = user.Email,
                 Email = user.Email,
                 Gebruiker = g
             };
+            Student s = new Student { Gebruiker = g };
             _context.Add(g);
+            _context.Students.Add(s);
             _context.SaveChanges();
             var result = await _userManager.CreateAsync(identityUser, user.Wachtwoord);
             if (result.Succeeded)
